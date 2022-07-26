@@ -1,3 +1,5 @@
+const e = require("express");
+
 const userDB = [
     {   
         id: 1,
@@ -55,10 +57,31 @@ const createUser = (userObj) => {
     return newUser;
 }
 
+const deleteUser = (id) => {
+    const index = userDB.findIndex(item => item.id === id);
+    if(index !== -1) {
+        userDB.splice(index, 1);
+        return true;
+    }
+}
+
+const editUser = (id, data) => {
+    const index = userDB.findIndex(item => item.id === id);
+    if(index !== -1) {
+        userDB[index] = data;
+        return userDB[index];
+    }else {
+        createUser(data)
+        return userDB.at(-1);
+    }
+}
+
 module.exports = {
     getAllUsers,
     getUsersById,
-    createUser
+    createUser,
+    deleteUser,
+    editUser
 }
 
 

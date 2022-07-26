@@ -7,8 +7,8 @@ router.route('/users')
 
 router.route('/users/:id')
     .get(httpUsers.getById)
-    // .put()
-    // .delete()
+    .put(httpUsers.update)
+    .delete(httpUsers.deleteById)
 
     module.exports = {
         router
