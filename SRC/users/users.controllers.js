@@ -4,10 +4,8 @@ const userDB = [
     {   
         id: 1,
         name: "",
-        age: 20,
-        email: "",
-        country: "",
-        phone: "",
+        task: "",
+        end: ""
     }
 ];
 
@@ -37,21 +35,17 @@ const createUser = (userObj) => {
         const newUser = {
             id: 1,
             name: userObj.name,
-            age: userObj.age,
-            email: userObj.email,
-            country: userObj.country,
-            phone: userObj.phone
+            task: userObj.task,
+            end: userObj.end
         }
         userDB.push(newUser);
         return newUser;
     }
     const newUser = {
-        id: userDB[userDB.length - 1].id + 1,
+        id: 1,
         name: userObj.name,
-        age: userObj.age,
-        email: userObj.email,
-        country: userObj.country,
-        phone: userObj.phone
+        task: userObj.task,
+        end: userObj.end
     }
     userDB.push(newUser);
     return newUser;

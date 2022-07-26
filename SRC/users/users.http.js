@@ -39,7 +39,7 @@ const deleteById = (req, res) => {
 
 const create = (req, res) => {
     const data = req.body;
-    if(data.name && data.age && data.email && data.country && data.phone) {
+    if(data.name && data.task && data.end) {
         const response = createUser(data)
         res.status(201).json(response)
     }else {
@@ -50,7 +50,7 @@ const create = (req, res) => {
 const update = (req, res) => {
     const id = Number(req.params.id)
     const data = req.body
-    if(data.name && data.age && data.email && data.country && data.phone) {
+    if(data.name && data.task && data.end) {
         const response = editUser(id, data)
         res.status(201).json({message: 'Edited successfully', data: response});
     }else {
